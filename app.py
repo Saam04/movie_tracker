@@ -5,9 +5,13 @@ from routes.movie_routes import movie_routes
 # Register Blueprints
 app.register_blueprint(movie_routes)
 
-if __name__ == "__main__":
-    app.run(debug=True)
-    
+# Initialize Database (Fixes missing table issue)
+with app.app_context():
+    db.create_all()
+
 @app.route("/")
 def home():
     return {"message": "Welcome to the Movie Tracker API!"}
+
+if __name__ == "__main__":
+    app.run(debug=True)

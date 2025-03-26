@@ -13,5 +13,4 @@ class Movie(db.Model):
     def __repr__(self):
         return f"<Movie {self.title}>"
 
-# Create the table
-db.create_all()
+#db.create_all()
