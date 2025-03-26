@@ -10,6 +10,7 @@ class Movie(db.Model):
     review = db.Column(db.Text, nullable=True)
     tmdb_id = db.Column(db.Integer, unique=True, nullable=False)
 
+
     def __repr__(self):
         return f"<Movie {self.title}>"
 

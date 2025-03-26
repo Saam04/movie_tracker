@@ -19,10 +19,9 @@ def add_movie():
 
     return jsonify({"message": "Movie added", "movie": movie_data}), 201
 
-# Ensure these functions exist as well
 def get_all_movies():
-    page = request.args.get("page", 1, type=int)  # Default page = 1
-    per_page = request.args.get("per_page", 10, type=int)  # Default per_page = 10
+    page = request.args.get("page", 1, type=int)  
+    per_page = request.args.get("per_page", 10, type=int)  
 
     movies = Movie.query.paginate(page=page, per_page=per_page, error_out=False)
     return jsonify(
